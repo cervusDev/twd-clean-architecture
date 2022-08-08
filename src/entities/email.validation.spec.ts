@@ -84,4 +84,11 @@ describe('Email validation', () => {
 
     expect(validate).toBeFalsy()
   })
+
+  it('should no accept email without an at-sign', () => {
+    const email = 'anyemailmail.com'
+    const validate = Email.validate(email)
+
+    expect(validate).toBeFalsy()
+  })
 })
