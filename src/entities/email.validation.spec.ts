@@ -70,4 +70,11 @@ describe('Email validation', () => {
 
     expect(validate).toBeFalsy()
   })
+
+  it('should no accept local part with two dots', () => {
+    const email = 'any..email@mail.com'
+    const validate = Email.validate(email)
+
+    expect(validate).toBeFalsy()
+  })
 })
