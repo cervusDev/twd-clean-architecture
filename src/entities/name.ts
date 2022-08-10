@@ -21,7 +21,7 @@ export class Name {
       return false
     }
 
-    if (name.trim().length < 2) {
+    if (name.trim().length < 2 || name.trim().length > 256) {
       return false
     }
 
