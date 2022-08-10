@@ -2,10 +2,10 @@ import { Either, right, left } from '../shared/either'
 import { InvalidEmailError } from './invalid.email.error'
 
 export class Email {
-  private readonly email: string
+  public readonly value: string
 
   constructor (email: string) {
-    this.email = email
+    this.value = email
   }
 
   static create (email: string): Either<InvalidEmailError, Email> {
