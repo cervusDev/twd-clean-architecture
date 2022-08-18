@@ -2,7 +2,7 @@ import { InvalidEmailError } from '../../entities/invalid.email.error'
 import { InvalidNameError } from '../../entities/invalid.name.error'
 import { User } from '../../entities/user'
 import { UserData } from '../../entities/user-data'
-import { Either, left } from '../../shared/either'
+import { Either, left, right } from '../../shared/either'
 import { UserRepoistory } from '../ports/user.repository'
 
 type Errors = InvalidNameError | InvalidEmailError
@@ -19,6 +19,10 @@ export class RegisterUserOnMailingList {
     if (userOrError.isLeft()) {
       return left(userOrError.value)
     }
-    return null
+    const exists = await this.userRepo.exists(request)
+    if (!exists) {
+      await this.userRepo.add(request)
+    }
+    return right(request)
   }
 }
