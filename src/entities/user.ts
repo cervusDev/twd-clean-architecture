@@ -19,17 +19,14 @@ export class User {
   static create (user: UserData): Either<Errors, User> {
     const validName = Name.create(user.name)
     if (validName.isLeft()) {
-      return left(new InvalidNameError(user.name))
+      return left(validName.value)
     }
 
     const validEmail = Email.create(user.email)
     if (validEmail.isLeft()) {
-      return left(new InvalidEmailError(user.email))
+      return left(validEmail.value)
     }
 
-    const name = validName.value as Name
-    const email = validEmail.value as Email
-
-    return right(new User(name, email))
+    return right(new User(validName.value, validEmail.value))
   }
 }
