@@ -1,5 +1,5 @@
-import { InvalidEmailError } from '../../entities/invalid.email.error'
-import { InvalidNameError } from '../../entities/invalid.name.error'
+import { InvalidEmailError } from '../../errors/invalid.email.error'
+import { InvalidNameError } from '../../errors/invalid.name.error'
 import { User } from '../../entities/user'
 import { UserData } from '../../entities/user-data'
 import { Either, left, right } from '../../shared/either'
