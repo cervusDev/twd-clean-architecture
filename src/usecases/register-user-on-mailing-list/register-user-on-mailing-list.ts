@@ -1,9 +1,7 @@
-import { InvalidEmailError } from '../../errors/invalid.email.error'
-import { InvalidNameError } from '../../errors/invalid.name.error'
-import { User } from '../../entities/user'
-import { UserData } from '../../entities/user-data'
-import { Either, left, right } from '../../shared/either'
-import { UserRepoistory } from '../ports/user.repository'
+import { InvalidEmailError, InvalidNameError } from '../../errors'
+import { User, UserData } from '../../entities'
+import { Either, left, right } from '../../shared'
+import { UserRepoistory } from '..'
 
 type Errors = InvalidNameError | InvalidEmailError
 type Response = Either<Errors, UserData>
