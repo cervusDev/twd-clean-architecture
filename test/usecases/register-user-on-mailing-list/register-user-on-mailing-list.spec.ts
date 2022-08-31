@@ -1,5 +1,5 @@
-import { UserData } from '../../../src/entities'
-import { UserRepoistory, InMemoryUserRepository, RegisterUserOnMailingList } from '../../../src/usecases'
+import { UserData } from '@/entities'
+import { UserRepoistory, InMemoryUserRepository, RegisterUserOnMailingList } from '@/usecases'
 
 describe('Register user on mailing list', () => {
   it('should add user with complete data to mailing list', async () => {
